@@ -1,0 +1,99 @@
+%&latexf
+\documentclass[isdraft]{kclthesis}  % notes see below
+							 		% [isdraft] provides background water mark "DRAFT"
+							 		% [kclharvardbib] provides different reference style.
+
+% nomenclature 
+%\usepackage[intoc]{nomencl}
+% glossaries
+\usepackage[toc, acronym]{glossaries} 
+
+
+% customize your general setup here
+\title{Super duper test title}
+\author{John Doe}
+%\modulecode{7CCSMPRJ}
+%\department{Department of Informatics}
+%\submissiontitle{Individual Project Submission 2015/16}
+%\studentnumber{XXXXX}
+%\programme{MSc Web Intelligence MSc}
+%\supervisor{Dr Frankenstein}
+%\wordcount{XXXXXXX}
+
+
+
+%\makenomenclature
+\makeglossaries
+
+
+
+
+\begin{document}
+\pagenumbering{gobble}
+
+
+%%%%%% depends what you like, might try out the other frontpage as well
+\maketitle 		% official styled layout
+\maketitleTwo 	% adapted layout which looks nicer from my point of view.
+
+%%%%%% empty page after main page.
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+%%%%%% Abstract
+\include{contents/abstract}
+%%%%%% Table of contents
+
+\pagenumbering{roman}
+\setcounter{tocdepth}{4}
+\tableofcontents
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{structure/figures_tables}
+\include{structure/acknowledgements}
+\fancyhead{}
+\fancyfoot{}
+\pagestyle{fancy} 
+%\fancyhead{\sffamily\small \thepage}
+%\fancyhead{\sffamily\small \nouppercase{\rightmark}}
+\fancyhead[RO,LE]{\sffamily\small \thepage}
+\fancyhead[LO,RE]{\sffamily\small \nouppercase{\rightmark}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.0pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%% Main content
+\pagenumbering{arabic}
+\include{contents/introduction}
+\include{contents/background}
+\include{contents/main}
+\include{contents/conclusion}
+
+\include{contents/nomenclature}
+%%%%% References
+\bibliographystyle{ieeetr}
+%%%%% Use King's College Harvard V1 style
+% If you want to use a bibliography style that is quite close to 
+% the King's College Harvard V1 style (http://libguides.kcl.ac.uk/reference/KingsHarvardV1): 
+% 1. Remove or comment the line "\bibliography{ieeetr}" above.
+% 2. Provide "kclharvardbib" as a document class parameter in the beginning of this file.
+% 3. Uncomment the line "\bibliographystyle{kclharvardv1}" below.
+%%%%%
+%\bibliographystyle{kclharvardv1}
+
+\bibliography{bibs/sample1, bibs/sample2} 
+%%%%% Declaration
+\include{structure/declaration}
+%%%%% Appendix 
+\appendix
+\include{appendix/app_1}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
